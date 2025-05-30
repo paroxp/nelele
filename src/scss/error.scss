@@ -5,6 +5,7 @@ body > main#not-found {
 
   h1 {
     font-family: "Amatic SC", sans-serif;
+    font-size: 6rem;
 
     @include min(map_get($width, 'tablet')) {
       font-size: 10rem;
@@ -13,6 +14,7 @@ body > main#not-found {
 
   p {
     font-family: "Amatic SC", sans-serif;
+    font-size: 3rem;
     margin: 0;
 
     @include min(map_get($width, 'tablet')) {

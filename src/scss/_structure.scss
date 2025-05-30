@@ -1,12 +1,15 @@
 body {
   margin: 0 1rem;
   max-width: 48rem;
+  min-height: 100vh;
+  padding-bottom: 200px;
   position: relative;
 
   @include clearfix;
 
   @include min(48em + 1em) {
     margin: 0 auto;
+    padding-bottom: 400px;
   }
 
   > header, > main, > footer {
@@ -14,7 +17,10 @@ body {
   }
 
   > footer {
-    margin-top: 1rem;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
     text-align: center;
 
     @include min(map_get($width, 'tablet')) {
