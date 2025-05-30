@@ -14,7 +14,7 @@ body {
   }
 
   > footer {
-    margin-top: 1rem;
+    margin-top: 5rem;
     text-align: center;
 
     @include min(map_get($width, 'tablet')) {
