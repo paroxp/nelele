@@ -1,0 +1,69 @@
+/**
+ * Our custom button, to be used throughout the project.
+ */
+@mixin button() {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: inline-block;
+  padding: .3rem;
+  text-align: center;
+  transition: all .3s ease;
+
+  svg path {
+    transition: all .3s ease;
+  }
+
+  @content;
+}
+
+/**
+ * We might need to clearfix some stuff using mixin!
+ */
+@mixin clearfix() {
+  zoom: 1;
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/**
+ * Ability to use shorthand media query in our project.
+ */
+@mixin min($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+/**
+ * GOV.UK Frontend's Visually Hidden mixin, allowing elements to be readable but visually non-existent.
+ */
+@mixin govuk-visually-hidden($important: true) {
+  position: absolute if($important, !important, null);
+
+  width: 1px if($important, !important, null);
+  height: 1px if($important, !important, null);
+  // If margin is set to a negative value it can cause text to be announced in
+  // the wrong order in VoiceOver for OSX
+  margin: 0 if($important, !important, null);
+  padding: 0 if($important, !important, null);
+
+  overflow: hidden if($important, !important, null);
+  clip: rect(0 0 0 0) if($important, !important, null);
+  clip-path: inset(50%) if($important, !important, null);
+
+  border: 0 if($important, !important, null);
+
+  // For long content, line feeds are not interpreted as spaces and small width
+  // causes content to wrap 1 word per line:
+  // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+  white-space: nowrap if($important, !important, null);
+}
