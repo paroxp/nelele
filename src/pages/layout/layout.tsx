@@ -2,7 +2,7 @@ import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
 import { Config } from '../../config';
-import { footerDog, social } from '../../img';
+import { dog, social } from '../../img';
 
 type HeaderProperties = {
   readonly page?: string;
@@ -55,7 +55,7 @@ export function Footer(): ReactElement {
   const currentYear = moment().year();
 
   return <footer>
-    <div dangerouslySetInnerHTML={{ __html: footerDog }}></div>
+    <div dangerouslySetInnerHTML={{ __html: dog.lurking }}></div>
   </footer>;
 }
 
