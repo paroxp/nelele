@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "sass:map";
 @use "core";
 @use "methods";
@@ -13,29 +14,53 @@ html[data-page=home] {
     background-position: inherit;
   }
 
-  body {
-    max-width: 100%;
+  body > footer {
+    bottom: 1rem;
   }
 }
 
 body > main#home {
+  text-align: center;
+
+  @include methods.min(map.get(variables.$width, 'tablet')) {
+    margin-top: -150px;
+    position: absolute;
+    top: 50%;
+    text-align: right;
+  }
+
   figure {
-    display: block;
+    $background: map.get(variables.$light-mode, 'background');
+    background-color: rgba(
+      color.channel($background, "red"),
+      color.channel($background, "green"),
+      color.channel($background, "blue"),
+      .7);
+    display: inline-block;
+    margin-top: 5rem;
 
     @include methods.min(map.get(variables.$width, 'tablet')) {
-      margin-top: 25%;
+      margin-top: 1rem;
       text-align: right;
     }
 
     & > div {
       display: inline-block;
-      width: 10.5rem;
+      width: 9rem;
+
+      @include methods.min(map.get(variables.$width, 'tablet')) {
+        width: 10.5rem;
+      }
     }
 
     & > figcaption {
       display: inline-block;
-      max-width: 21rem;
+      max-width: 17rem;
       text-align: left;
+
+      @include methods.min(map.get(variables.$width, 'tablet')) {
+        max-width: 21rem;
+      }
     }
   }
 
@@ -52,12 +77,13 @@ body > main#home {
   }
 
   h2 {
+    color: #000;
     font-family: "Amatic SC", sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.74rem;
     letter-spacing: 3%;
     margin: 0;
     margin-left: .3rem;
-    line-height: 1;
+    line-height: 1.1;
 
     @include methods.min(map.get(variables.$width, 'tablet')) {
       font-size: 2.1rem;
@@ -65,7 +91,10 @@ body > main#home {
   }
 
   nav {
+    display: inline-block;
+    margin-top: 3rem;
     text-align: center;
+    width: 100%;
 
     @include methods.min(map.get(variables.$width, 'tablet')) {
       margin-top: 5rem;
@@ -80,7 +109,7 @@ body > main#home {
 
       & > li {
         display: block;
-        margin: 1rem 0;
+        margin: 5rem 0;
 
         @include methods.min(map.get(variables.$width, 'tablet')) {
           display: inline-block;
@@ -92,11 +121,12 @@ body > main#home {
         display: inline-block;
         font-family: "Amatic SC",sans-serif;
         font-size: 3.6rem;
-        padding: 1rem;
+        font-weight: 600;
+        line-height: 1;
         text-transform: uppercase;
 
         &:hover, &:active {
-          background-color: rgba(255, 255, 255, 0.7);
+          background-color: rgba(255, 255, 255, .7);
         }
       }
     }

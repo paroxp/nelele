@@ -2,17 +2,6 @@
 @use "methods";
 @use "variables";
 
-html[data-page='404'] {
-  background-attachment: fixed;
-  background-image: url(./bg-landing.svg);
-  background-position: left bottom;
-  background-repeat: no-repeat;
-
-  @include methods.min(map.get(variables.$width, 'tablet')) {
-    background-position: inherit;
-  }
-}
-
 body {
   margin: 0 auto;
   max-width: 48rem;

@@ -3,6 +3,17 @@
 @use "methods";
 @use "variables";
 
+html[data-page='404'] {
+  background-attachment: fixed;
+  background-image: url(./bg-landing.svg);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  @include methods.min(map.get(variables.$width, 'mobile')) {
+    background-position: inherit;
+  }
+}
+
 body > main#not-found {
   margin-top: 5rem;
   text-align: center;
