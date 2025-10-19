@@ -6,14 +6,48 @@ body {
   margin: 0 auto;
   max-width: 48rem;
 
+  > header {
+    text-align: center;
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      margin: 2rem;
+    }
+
+    nav ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        margin: 0 1rem;
+        vertical-align: middle;
+
+        a {
+          backdrop-filter: blur(1rem);
+          background-color: variables.$backlight;
+          border-radius: .5rem;
+          display: inline-block;
+          font-family: "Amatic SC",sans-serif;
+          font-size: 2.5rem;
+          font-weight: 600;
+          line-height: 1;
+          text-transform: uppercase;
+          padding: 0.5rem;
+
+          &.logo {
+            height: 4.5rem;
+            width: 4.5rem;
+          }
+        }
+      }
+    }
+  }
+
   > footer {
     font-family: "Amatic SC", sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
-    left: 1rem;
-    margin-top: 3rem;
-    position: absolute;
-    right: 1rem;
     text-align: center;
 
     @include methods.min(map.get(variables.$width, 'tablet')) {

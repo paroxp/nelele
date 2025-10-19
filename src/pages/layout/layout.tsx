@@ -2,33 +2,16 @@ import moment from 'moment';
 import React, { ReactElement, ReactNode } from 'react';
 
 import { Config } from '../../config';
-import { dog, social } from '../../img';
+import { logo, social } from '../../img';
 
 type HeaderProperties = {
   readonly page?: string;
-}
-
-type LinkProperties = {
-  readonly children: ReactNode;
-  readonly className?: string;
-  readonly href: string;
-  readonly internal?: boolean;
 }
 
 type SocialLinkProperties = {
   readonly icon: string;
   readonly title: string;
   readonly url: string;
-}
-
-export function Link(props: LinkProperties): ReactElement {
-  return <a
-    className={props.className}
-    href={props.href}
-    target={!props.internal ? '_blank' : undefined}
-    rel={!props.internal ? 'external nofollow noopener noreferrer' : undefined}>
-      {props.children}
-    </a>;
 }
 
 function SocialLink(props: SocialLinkProperties): ReactElement {
@@ -48,7 +31,17 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
 }
 
 export function Header(props: HeaderProperties): ReactElement {
-  return <header className={props.page}></header>;
+  const active = (name: string) => name === props.page ? 'active' : '';
+
+  return <header className={props.page}>
+    <nav>
+      <ol>
+        <li><a href="/" className="logo" dangerouslySetInnerHTML={{ __html: logo }}></a></li>
+        <li><a href="/about" className={active("about")}>O Mnie</a></li>
+        <li><a href="/portfolio" className={active("portfolio")}>Portfolio</a></li>
+      </ol>
+    </nav>
+  </header>;
 }
 
 export function Footer(): ReactElement {
@@ -90,7 +83,7 @@ export function htmlDocument(config: Config, body: string): string {
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Hind+Siliguri:wght@300;500;700&display=swap">
+      <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
       <style>${config.styles}</style>
     </head>

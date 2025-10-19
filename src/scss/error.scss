@@ -9,8 +9,12 @@ html[data-page='404'] {
   background-position: left bottom;
   background-repeat: no-repeat;
 
-  @include methods.min(map.get(variables.$width, 'mobile')) {
-    background-position: inherit;
+  body > footer {
+    bottom: 1rem;
+    left: 1rem;
+    margin-top: 3rem;
+    position: absolute;
+    right: 1rem;
   }
 }
 

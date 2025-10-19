@@ -16,6 +16,10 @@ html[data-page=home] {
 
   body > footer {
     bottom: 1rem;
+    left: 1rem;
+    margin-top: 3rem;
+    position: absolute;
+    right: 1rem;
   }
 }
 
@@ -24,18 +28,14 @@ body > main#home {
 
   @include methods.min(map.get(variables.$width, 'tablet')) {
     margin-top: -150px;
+    padding-right: 12rem;
     position: absolute;
     top: 50%;
     text-align: right;
   }
 
   figure {
-    $background: map.get(variables.$light-mode, 'background');
-    background-color: rgba(
-      color.channel($background, "red"),
-      color.channel($background, "green"),
-      color.channel($background, "blue"),
-      .7);
+    background-color: variables.$backlight;
     display: inline-block;
     margin-top: 5rem;
 
@@ -79,14 +79,21 @@ body > main#home {
   h2 {
     color: #000;
     font-family: "Amatic SC", sans-serif;
-    font-size: 1.74rem;
+    font-size: 1.92rem;
     letter-spacing: 3%;
     margin: 0;
     margin-left: .3rem;
     line-height: 1.1;
 
+    @-moz-document url-prefix() {
+      font-size: 1.74rem;
+    }
+
     @include methods.min(map.get(variables.$width, 'tablet')) {
-      font-size: 2.1rem;
+      font-size: 2.3rem;
+      @-moz-document url-prefix() {
+        font-size: 2.1rem;
+      }
     }
   }
 
@@ -109,7 +116,7 @@ body > main#home {
 
       & > li {
         display: block;
-        margin: 5rem 0;
+        margin: 2rem 0;
 
         @include methods.min(map.get(variables.$width, 'tablet')) {
           display: inline-block;
@@ -118,15 +125,26 @@ body > main#home {
       }
 
       a {
+        $border: rgba(
+          color.channel(map.get(variables.$light-mode, 'foreground'), 'red'),
+          color.channel(map.get(variables.$light-mode, 'foreground'), 'green'),
+          color.channel(map.get(variables.$light-mode, 'foreground'), 'blue'),
+          .5
+        );
+        backdrop-filter: blur(1rem);
+        background-color: variables.$backlight;
+        border: 1px solid $border;
+        border-radius: .5rem;
         display: inline-block;
         font-family: "Amatic SC",sans-serif;
         font-size: 3.6rem;
         font-weight: 600;
         line-height: 1;
         text-transform: uppercase;
+        padding: 0.5rem;
 
-        &:hover, &:active {
-          background-color: rgba(255, 255, 255, .7);
+        @include methods.min(map.get(variables.$width, 'tablet')) {
+          border: none;
         }
       }
     }

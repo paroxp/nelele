@@ -10,6 +10,7 @@ import { transpileModule, TranspileOptions } from 'typescript';
 import * as tsconfig from '../tsconfig.json';
 
 import { Config, config } from './config';
+import { About } from './pages/about';
 import { Home } from './pages/home';
 import { NotFound } from './pages/errors';
 import { htmlDocument } from './pages/layout';
@@ -89,6 +90,12 @@ async function generator(): Promise<void> {
       styles: compileSCSS('./scss/home.scss'),
     },
     {
+      body: About,
+      name: 'about',
+      path: '/about',
+      styles: compileSCSS('./scss/about.scss'),
+    },
+    {
       body: NotFound,
       name: '404',
       path: '/404',
@@ -113,6 +120,7 @@ async function generator(): Promise<void> {
   const copyList = [
     { destination: dist('robots.txt'), source: path.join(__dirname, 'static', 'robots.txt') },
     { destination: dist('bg-landing.svg'), source: path.join(__dirname, 'img', 'background', 'landing.svg') },
+    { destination: dist('bg-page.svg'), source: path.join(__dirname, 'img', 'background', 'page.svg') },
 
     ...discoverFilesToCopy('./img/favicon/'),
   ];

@@ -1,0 +1,85 @@
+@use "sass:color";
+@use "sass:map";
+@use "core";
+@use "methods";
+@use "variables";
+
+html[data-page=about] {
+  background-attachment: fixed;
+  background-image: url(./bg-page.svg);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  @include methods.min(map.get(variables.$width, 'tablet')) {
+    background-position: inherit;
+  }
+
+  body > footer {
+    margin-bottom: 1rem;
+  }
+}
+
+body > main#about {
+  position: relative;
+
+  @include methods.clearfix();
+
+  h2 {
+    font-family: "Amatic SC", sans-serif;
+    font-size: 2.75rem;
+    font-weight: 600;
+  }
+
+  section {
+    $border: rgba(
+      color.channel(map.get(variables.$light-mode, 'foreground'), 'red'),
+      color.channel(map.get(variables.$light-mode, 'foreground'), 'green'),
+      color.channel(map.get(variables.$light-mode, 'foreground'), 'blue'),
+      .5
+    );
+    backdrop-filter: blur(1rem);
+    background-color: variables.$backlight;
+    border: 1px solid $border;
+    border-radius: .5rem;
+    display: block;
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    @include methods.clearfix();
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      border: none;
+      margin: 0;
+      margin-bottom: 1rem;
+      max-width: 33rem;
+      padding: 0;
+    }
+
+    &:not(.about) {
+      @include methods.min(map.get(variables.$width, 'tablet')) {
+        margin-left: 10rem;
+      }
+    }
+
+    strong {
+      font-weight: 400;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+
+    &.software {
+      > div {
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+      }
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+}

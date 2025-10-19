@@ -1,15 +1,21 @@
+@use "sass:color";
+@use "sass:map";
+
 $light-mode: (
-  background: #FFEFCF,
-  foreground: #522D33,
+  background: #F6FFFC,
+  foreground: #0C2E34,
   secondary: #505a5f,
-  highlight: #ffb3aa,
-  highlight-color: #272727,
+  highlight: #FF7298,
+  highlight-color: #F6FFFC,
   link: #4FAE84,
   link-active: #FF7298,
 );
 
-$social: (
-  linkedin: #007bb6,
+$backlight: rgba(
+  color.channel(map.get($light-mode, 'background'), 'red'),
+  color.channel(map.get($light-mode, 'background'), 'green'),
+  color.channel(map.get($light-mode, 'background'), 'blue'),
+  .85
 );
 
 $width: (

@@ -2,6 +2,15 @@
 @use "methods";
 @use "variables";
 
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
 a, a:link, a:visited {
   color: map.get(variables.$light-mode, 'link');
   text-decoration: none;
