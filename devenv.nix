@@ -43,7 +43,6 @@
   # https://devenv.sh/git-hooks/
   git-hooks.hooks.editorconfig-checker.enable = true;
   git-hooks.hooks.html-tidy.enable = true;
-  git-hooks.hooks.cspell.enable = true;
 
   # See full reference at https://devenv.sh/reference/options/
 }

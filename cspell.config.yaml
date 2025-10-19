@@ -1,6 +1,0 @@
-dictionaryDefinitions:
-  - name: project
-    path: ./dictionary.txt
-    addWords: true
-dictionaries:
-  - project
