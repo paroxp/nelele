@@ -1,5 +1,9 @@
+@use "sass:map";
+@use "methods";
+@use "variables";
+
 html {
-  background-color: $main;
+  background-color: variables.$main;
   box-sizing: border-box;
   color: #fff;
   font-family: 'Hind Siliguri', sans-serif;
@@ -24,7 +28,7 @@ html {
 }
 
 .visually-hidden {
-  @include govuk-visually-hidden();
+  @include methods.govuk-visually-hidden();
 }
 
 .no-print {
@@ -37,5 +41,5 @@ svg {
   display: block;
 }
 
-::-moz-selection { background-color: map_get($light-mode, 'highlight'); color: map_get($light-mode, 'highlight-color'); }
-::selection { background-color: map_get($light-mode, 'highlight'); color: map_get($light-mode, 'highlight-color'); }
+::-moz-selection { background-color: map.get(variables.$light-mode, 'highlight'); color: map.get(variables.$light-mode, 'highlight-color'); }
+::selection { background-color: map.get(variables.$light-mode, 'highlight'); color: map.get(variables.$light-mode, 'highlight-color'); }

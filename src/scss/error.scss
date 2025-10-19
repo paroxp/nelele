@@ -1,4 +1,7 @@
-@import "core";
+@use "sass:map";
+@use "core";
+@use "methods";
+@use "variables";
 
 body > main#not-found {
   text-align: center;
@@ -7,7 +10,7 @@ body > main#not-found {
     font-family: "Amatic SC", sans-serif;
     font-size: 6rem;
 
-    @include min(map_get($width, 'tablet')) {
+    @include methods.min(map.get(variables.$width, 'tablet')) {
       font-size: 10rem;
     }
   }
@@ -17,7 +20,7 @@ body > main#not-found {
     font-size: 3rem;
     margin: 0;
 
-    @include min(map_get($width, 'tablet')) {
+    @include methods.min(map.get(variables.$width, 'tablet')) {
       font-size: 6rem;
     }
   }

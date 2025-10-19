@@ -1,18 +1,22 @@
+@use "sass:map";
+@use "methods";
+@use "variables";
+
 body {
   margin: 0 1rem;
   max-width: 48rem;
   min-height: 100vh;
   position: relative;
 
-  @include clearfix;
+  @include methods.clearfix;
 
-  @include min(48em + 1em) {
+  @include methods.min(48em + 1em) {
     margin: 0 auto;
     padding-bottom: 400px;
   }
 
   > header, > main, > footer {
-    @include clearfix;
+    @include methods.clearfix;
   }
 
   > footer {
@@ -22,7 +26,7 @@ body {
     right: 0;
     text-align: center;
 
-    @include min(map_get($width, 'tablet')) {
+    @include methods.min(map.get(variables.$width, 'tablet')) {
       margin-top: 3rem;
       text-align: left;
     }
@@ -31,16 +35,16 @@ body {
       height: 2.25em;
       width: 2.25em;
 
-      @include button() {
+      @include methods.button() {
         svg path {
-          fill: map_get($light-mode, 'foreground');
+          fill: map.get(variables.$light-mode, 'foreground');
         }
 
         &:active, &:hover {
-          fill: map_get($light-mode, 'link-active');
+          fill: map.get(variables.$light-mode, 'link-active');
 
           &.linkedin svg path {
-            fill: map_get($social, 'linkedin');
+            fill: map.get(variables.$social, 'linkedin');
           }
         }
       }
@@ -50,7 +54,7 @@ body {
       line-height: 2.5;
       text-transform: uppercase;
 
-      @include min(map_get($width, 'tablet')) {
+      @include methods.min(map.get(variables.$width, 'tablet')) {
         float: left;
         margin-right: gutter(6 of 12);
         width: span(6 of 12);
@@ -61,7 +65,7 @@ body {
       cursor: default;
       user-select: none;
 
-      @include min(map_get($width, 'tablet')) {
+      @include methods.min(map.get(variables.$width, 'tablet')) {
         float: right;
         margin-right: 0;
         text-align: right;
@@ -76,7 +80,7 @@ body {
       margin: 0;
       padding: 0;
 
-      @include min(map_get($width, 'tablet')) {
+      @include methods.min(map.get(variables.$width, 'tablet')) {
         justify-content: flex-end;
       }
     }
