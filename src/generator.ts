@@ -50,7 +50,6 @@ function compileSCSS(filename: string): string {
   return scss.compile(path.join(__dirname, filename), {
     loadPaths: [
       'src/scss',
-      'node_modules/susy/sass',
     ],
     style: 'compressed',
   }).css.toString();
