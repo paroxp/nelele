@@ -2,7 +2,7 @@ import { copyFileSync, readdirSync, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 
 import html from 'html-minifier';
-import scss from 'node-sass';
+import scss from 'sass';
 import { ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { transpileModule, TranspileOptions } from 'typescript';
@@ -47,16 +47,13 @@ function compileHTML(page: () => ReactElement, cfg: Config): string {
 }
 
 function compileSCSS(filename: string): string {
-  const source = readFileSync(path.join(__dirname, filename), 'utf8');
-
-  return scss.renderSync({
-    data: source,
-    includePaths: [
+  return scss.compile(path.join(__dirname, filename), {
+    loadPaths: [
       'src/scss',
       'node_modules/susy/sass',
     ],
-    outputStyle: 'compressed',
-  }).css.toString('utf-8');
+    style: 'compressed',
+  }).css.toString();
 }
 
 function compileTypeScript(filename: string): string {
