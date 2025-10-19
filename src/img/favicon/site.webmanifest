@@ -1,20 +1,21 @@
 {
   "name": "Barbara Prochownik",
-  "short_name": "Barbara Prochownik",
+  "short_name": "Nev",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "theme_color": "#004643",
-  "background_color": "#004643",
-    "start_url": "https://www.nevandela.io/",
+  "theme_color": "#FFEFCF",
+  "background_color": "#FFEFCF",
   "display": "standalone"
 }

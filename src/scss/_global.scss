@@ -3,9 +3,9 @@
 @use "variables";
 
 html {
-  background-color: variables.$main;
+  background-color: map.get(variables.$light-mode, 'background');
   box-sizing: border-box;
-  color: #fff;
+  color: map.get(variables.$light-mode, 'foreground');
   font-family: 'Hind Siliguri', sans-serif;
   font-size: 16px;
   font-size: 1rem;

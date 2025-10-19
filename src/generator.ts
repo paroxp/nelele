@@ -10,7 +10,7 @@ import { transpileModule, TranspileOptions } from 'typescript';
 import * as tsconfig from '../tsconfig.json';
 
 import { Config, config } from './config';
-import { Holding } from './pages/holding';
+import { Home } from './pages/home';
 import { NotFound } from './pages/errors';
 import { htmlDocument } from './pages/layout';
 import { generateSiteMap } from './pages/sitemap';
@@ -74,7 +74,7 @@ function iterativelyCompileHTML(files: readonly FileWriteable[], page: Page): re
   const filename = page.filename || `${page.name}${page.extension || '.html'}`;
   const { path, scripts } = page;
   const styles = page.styles || 'html{background-color:red}';
-  const content = compileHTML(page.body, { ...config, path, scripts, styles });
+  const content = compileHTML(page.body, { ...config, page: page.name, path, scripts, styles });
 
   return [...files, { content, filename }];
 }
@@ -82,11 +82,11 @@ function iterativelyCompileHTML(files: readonly FileWriteable[], page: Page): re
 async function generator(): Promise<void> {
   const pages: readonly Page[] = [
     {
-      body: Holding,
+      body: Home,
       filename: 'index.html',
-      name: 'holding',
+      name: 'home',
       path: '/',
-      styles: compileSCSS('./scss/holding.scss'),
+      styles: compileSCSS('./scss/home.scss'),
     },
     {
       body: NotFound,
@@ -112,6 +112,7 @@ async function generator(): Promise<void> {
 
   const copyList = [
     { destination: dist('robots.txt'), source: path.join(__dirname, 'static', 'robots.txt') },
+    { destination: dist('bg-landing.svg'), source: path.join(__dirname, 'img', 'background', 'landing.svg') },
 
     ...discoverFilesToCopy('./img/favicon/'),
   ];

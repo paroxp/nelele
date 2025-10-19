@@ -2,6 +2,7 @@ export type Config = {
   readonly description: string;
   readonly keywords: readonly string[];
   readonly name: string;
+  readonly page?: string;
   readonly path?: string;
   readonly scripts?: string;
   readonly styles: string;

@@ -1,0 +1,104 @@
+@use "sass:map";
+@use "core";
+@use "methods";
+@use "variables";
+
+html[data-page=home] {
+  background-attachment: fixed;
+  background-image: url(./bg-landing.svg);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  @include methods.min(map.get(variables.$width, 'tablet')) {
+    background-position: inherit;
+  }
+
+  body {
+    max-width: 100%;
+  }
+}
+
+body > main#home {
+  figure {
+    display: block;
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      margin-top: 25%;
+      text-align: right;
+    }
+
+    & > div {
+      display: inline-block;
+      width: 10.5rem;
+    }
+
+    & > figcaption {
+      display: inline-block;
+      max-width: 21rem;
+      text-align: left;
+    }
+  }
+
+  h1 {
+    font-family: "Amatic SC", sans-serif;
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 0.7;
+    margin: 0;
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      font-size: 6rem;
+    }
+  }
+
+  h2 {
+    font-family: "Amatic SC", sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 3%;
+    margin: 0;
+    margin-left: .3rem;
+    line-height: 1;
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      font-size: 2.1rem;
+    }
+  }
+
+  nav {
+    text-align: center;
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      margin-top: 5rem;
+      padding-right: 2rem;
+      text-align: right;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      & > li {
+        display: block;
+        margin: 1rem 0;
+
+        @include methods.min(map.get(variables.$width, 'tablet')) {
+          display: inline-block;
+          margin: 0 2rem;
+        }
+      }
+
+      a {
+        display: inline-block;
+        font-family: "Amatic SC",sans-serif;
+        font-size: 3.6rem;
+        padding: 1rem;
+        text-transform: uppercase;
+
+        &:hover, &:active {
+          background-color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+  }
+}

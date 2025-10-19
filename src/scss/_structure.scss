@@ -2,100 +2,34 @@
 @use "methods";
 @use "variables";
 
+html[data-page='404'] {
+  background-attachment: fixed;
+  background-image: url(./bg-landing.svg);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  @include methods.min(map.get(variables.$width, 'tablet')) {
+    background-position: inherit;
+  }
+}
+
 body {
-  margin: 0 1rem;
+  margin: 0 auto;
   max-width: 48rem;
-  min-height: 100vh;
-  position: relative;
-
-  @include methods.clearfix;
-
-  @include methods.min(48em + 1em) {
-    margin: 0 auto;
-    padding-bottom: 400px;
-  }
-
-  > header, > main, > footer {
-    @include methods.clearfix;
-  }
 
   > footer {
-    bottom: 0;
-    left: 0;
+    font-family: "Amatic SC", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    left: 1rem;
+    margin-top: 3rem;
     position: absolute;
-    right: 0;
+    right: 1rem;
     text-align: center;
 
     @include methods.min(map.get(variables.$width, 'tablet')) {
-      margin-top: 3rem;
-      text-align: left;
-    }
-
-    a, a:link, a:visited {
-      height: 2.25em;
-      width: 2.25em;
-
-      @include methods.button() {
-        svg path {
-          fill: map.get(variables.$light-mode, 'foreground');
-        }
-
-        &:active, &:hover {
-          fill: map.get(variables.$light-mode, 'link-active');
-
-          &.linkedin svg path {
-            fill: map.get(variables.$social, 'linkedin');
-          }
-        }
-      }
-    }
-
-    .copyright {
-      line-height: 2.5;
-      text-transform: uppercase;
-
-      @include methods.min(map.get(variables.$width, 'tablet')) {
-        float: left;
-        margin-right: gutter(6 of 12);
-        width: span(6 of 12);
-      }
-    }
-
-    .icons {
-      cursor: default;
-      user-select: none;
-
-      @include methods.min(map.get(variables.$width, 'tablet')) {
-        float: right;
-        margin-right: 0;
-        text-align: right;
-        width: span(6 of 12);
-      }
-    }
-
-    ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      @include methods.min(map.get(variables.$width, 'tablet')) {
-        justify-content: flex-end;
-      }
-    }
-
-    ul li {
-      display: inline-block;
-      margin: .075rem;
-
-      &:first-of-type {
-        margin-left: 0;
-      }
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+      bottom: 1rem;
+      text-align: right;
     }
   }
 }
