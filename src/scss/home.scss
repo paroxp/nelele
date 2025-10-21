@@ -79,21 +79,14 @@ body > main#home {
   h2 {
     color: #000;
     font-family: "Amatic SC", sans-serif;
-    font-size: 1.92rem;
+    font-size: 1.74rem;
     letter-spacing: 3%;
     margin: 0;
     margin-left: .3rem;
     line-height: 1.1;
 
-    @-moz-document url-prefix() {
-      font-size: 1.74rem;
-    }
-
     @include methods.min(map.get(variables.$width, 'tablet')) {
-      font-size: 2.3rem;
-      @-moz-document url-prefix() {
-        font-size: 2.1rem;
-      }
+      font-size: 2.1rem;
     }
   }
 
