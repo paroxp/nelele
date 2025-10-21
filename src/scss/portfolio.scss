@@ -1,0 +1,38 @@
+@use "sass:color";
+@use "sass:map";
+@use "core";
+@use "methods";
+@use "variables";
+
+html[data-page=portfolio] {
+  background-attachment: fixed;
+  background-image: url(./bg-placeholder.svg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+
+  body > footer {
+    bottom: 1rem;
+    left: 1rem;
+    margin-top: 3rem;
+    position: absolute;
+    right: 1rem;
+    text-align: left;
+  }
+}
+
+body > main#portfolio {
+  h2 {
+    font-family: "Amatic SC", sans-serif;
+    font-size: 6rem;
+    font-weight: 600;
+    padding: 1rem;
+
+    small {
+      display: inline-block;
+      margin-left: -2rem;
+      margin-top: 6rem;
+      position: absolute;
+      rotate: 50deg;
+    }
+  }
+}

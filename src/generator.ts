@@ -11,9 +11,10 @@ import * as tsconfig from '../tsconfig.json';
 
 import { Config, config } from './config';
 import { About } from './pages/about';
-import { Home } from './pages/home';
 import { NotFound } from './pages/errors';
+import { Home } from './pages/home';
 import { htmlDocument } from './pages/layout';
+import { Portfolio } from './pages/portfolio';
 import { generateSiteMap } from './pages/sitemap';
 
 interface FileCopyable {
@@ -96,6 +97,12 @@ async function generator(): Promise<void> {
       styles: compileSCSS('./scss/about.scss'),
     },
     {
+      body: Portfolio,
+      name: 'portfolio',
+      path: '/portfolio',
+      styles: compileSCSS('./scss/portfolio.scss'),
+    },
+    {
       body: NotFound,
       name: '404',
       path: '/404',
@@ -121,6 +128,7 @@ async function generator(): Promise<void> {
     { destination: dist('robots.txt'), source: path.join(__dirname, 'static', 'robots.txt') },
     { destination: dist('bg-landing.svg'), source: path.join(__dirname, 'img', 'background', 'landing.svg') },
     { destination: dist('bg-page.svg'), source: path.join(__dirname, 'img', 'background', 'page.svg') },
+    { destination: dist('bg-placeholder.svg'), source: path.join(__dirname, 'img', 'background', 'placeholder.svg') },
 
     ...discoverFilesToCopy('./img/favicon/'),
   ];
