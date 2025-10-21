@@ -37,7 +37,8 @@ body > main#home {
   figure {
     background-color: variables.$backlight;
     display: inline-block;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    padding: 1rem 0;
 
     @include methods.min(map.get(variables.$width, 'tablet')) {
       margin-top: 1rem;
@@ -92,7 +93,6 @@ body > main#home {
 
   nav {
     display: inline-block;
-    margin-top: 3rem;
     text-align: center;
     width: 100%;
 
