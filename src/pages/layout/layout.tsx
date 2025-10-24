@@ -39,7 +39,12 @@ export function Header(props: HeaderProperties): ReactElement {
   const active = (name: string) => name === props.page ? 'active' : '';
 
   return <header className={props.page}>
-    <nav>
+    <h1>
+      Barbara Prochownik
+      <small>Graphic Designer</small>
+    </h1>
+
+    <nav className='no-print'>
       <ol>
         <li><a href={localeLink(props.language, '/')} className="logo" dangerouslySetInnerHTML={{ __html: logo }}></a></li>
         <li><a href={localeLink(props.language, '/about')} className={active("about")}>{translation('layout.menu.about')}</a></li>
@@ -52,7 +57,7 @@ export function Header(props: HeaderProperties): ReactElement {
 export function Footer({ language }: { language: Language}): ReactElement {
   const currentYear = moment().year();
 
-  return <footer>
+  return <footer className='no-print'>
     &copy; 2014 - {currentYear}
   </footer>;
 }

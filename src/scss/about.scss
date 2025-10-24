@@ -48,6 +48,13 @@ body > main#about {
 
     @include methods.clearfix();
 
+    @media print {
+      border: none;
+      margin: 0;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+
     @include methods.min(map.get(variables.$width, 'tablet')) {
       border: none;
       margin: 0;
@@ -68,6 +75,11 @@ body > main#about {
 
     ul {
       margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      margin-bottom: 1rem;
     }
 
     &.software {

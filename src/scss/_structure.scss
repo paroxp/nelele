@@ -33,6 +33,26 @@ body {
       margin: 2rem;
     }
 
+    @media print {
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      display: none;
+      font-family: "Amatic SC",sans-serif;
+      font-size: 4rem;
+      font-weight: 600;
+      text-align: left;
+
+      @media print {
+        display: block;
+      }
+
+      small {
+        display: block;
+      }
+    }
+
     nav ol {
       list-style: none;
       margin: 0;
