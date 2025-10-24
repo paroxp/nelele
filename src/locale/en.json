@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Mad Artist",
-    "description": "Ambitious and Creative"
+    "description": "Where creativity meets curiosity - designing worlds, one idea at a time."
   },
   "layout": {
     "menu": {
@@ -25,40 +25,40 @@
       },
       "content": {
         "about": [
-          "I have graduated Graphics Design at WIT Academy in Warsaw. I quickly adapt to the new skills and love being creatively playful with content. I am a team player.",
-          "Creating both digital and traditional arts is my passion. I love fantasy and I spend my spare time playing video games."
+          "I'm a graphic designer and visual artist based in Warsaw, with a degree in Graphic Design from WIT Academy. I'm passionate about bringing ideas to life through both digital and traditional art, blending imagination with technical skill.",
+          "I'm a fast learner who loves experimenting, exploring new tools, and finding creative ways to tell visual stories. Collaboration energizes me — I enjoy working in a team and turning shared ideas into strong, visually engaging projects.",
+          "Outside of work, I'm inspired by fantasy worlds and spend my free time illustrating, designing characters, and playing video games."
         ],
         "experience": [
           {
-            "title": "Graphics Designer Internship with ANTERIS Irena Kucharska",
+            "title": "Graphic Designer Intern - ANTERIS Irena Kucharska",
             "bullets": [
-              "Designing print templates",
-              "Crafting print illustrations",
-              "Treatment and preparation of photographs for further use",
-              "Working with Midjourney AI, generating illustrations and finishing them off with Adobe Photoshop"
+              "Designed templates and layouts for print projects",
+              "Created illustrations and refined photo treatments for production use",
+              "Used Midjourney AI to generate concept imagery and finished assets in Adobe Photoshop",
+              "Contributed to the creative development of visual materials for print and digital media"
             ]
           }
         ],
         "skills": {
           "specific": [
-            "Planning and Managing projects",
-            "Creative and Conceptual design",
-            "Fantasy themet Character and Scene design",
-            "3D modelling"
+            "Creative and conceptual design",
+            "Fantasy-themed character and environment design",
+            "Project planning and time management",
+            "3D modeling and digital sculpting"
           ],
           "soft": [
-            "Quickly adopting new skills, tools and technologies",
-            "Developing original and creative projects",
-            "Profficient with Time Management",
-            "Effectively collaborating with the team, driving and achieving shared goals"
+            "Strong adaptability to new tools and techniques",
+            "Collaborative teamwork and communication",
+            "Development of unique, visually cohesive projects"
           ]
         },
         "software": {
-          "adobe": "Adobe Suite",
-          "threeD": "3D Software"
+          "adobe": "Adobe Creative Suite",
+          "threeD": "3D Tools"
         },
         "education": [
-          "WIT Academy in Warsaw - Graphics Design/Multimedia"
+          "WIT Academy, Warsaw - Graphic Design / Multimedia"
         ]
       }
     }
