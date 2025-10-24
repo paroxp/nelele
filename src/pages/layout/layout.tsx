@@ -1,10 +1,14 @@
+import path from 'path';
+
 import moment from 'moment';
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import { Config } from '../../config';
 import { logo, social } from '../../img';
+import { Language, localeLink, translator } from '../../locale';
 
 type HeaderProperties = {
+  readonly language: Language;
   readonly page?: string;
 }
 
@@ -31,20 +35,21 @@ function SocialLink(props: SocialLinkProperties): ReactElement {
 }
 
 export function Header(props: HeaderProperties): ReactElement {
+  const translation = translator(props.language);
   const active = (name: string) => name === props.page ? 'active' : '';
 
   return <header className={props.page}>
     <nav>
       <ol>
-        <li><a href="/" className="logo" dangerouslySetInnerHTML={{ __html: logo }}></a></li>
-        <li><a href="/about" className={active("about")}>O Mnie</a></li>
-        <li><a href="/portfolio" className={active("portfolio")}>Portfolio</a></li>
+        <li><a href={localeLink(props.language, '/')} className="logo" dangerouslySetInnerHTML={{ __html: logo }}></a></li>
+        <li><a href={localeLink(props.language, '/about')} className={active("about")}>{translation('layout.menu.about')}</a></li>
+        <li><a href={localeLink(props.language, '/portfolio')} className={active("portfolio")}>{translation('layout.menu.portfolio')}</a></li>
       </ol>
     </nav>
   </header>;
 }
 
-export function Footer(): ReactElement {
+export function Footer({ language }: { language: Language}): ReactElement {
   const currentYear = moment().year();
 
   return <footer>
@@ -52,8 +57,19 @@ export function Footer(): ReactElement {
   </footer>;
 }
 
+function languageSelector(language: Language) {
+  if (language === 'pl') {
+    return { path: '/', title: 'English' };
+  }
+
+  return { path: '/pl', title: 'Polski' };
+}
+
 export function htmlDocument(config: Config, body: string): string {
-  const title = `${config.name} - ${config.title}`;
+  const language = config.language || 'en';
+  const translation = translator(language);
+  const langSelector = languageSelector(language);
+  const title = `${config.name} - ${translation('meta.title')}`;
   const pageTitle = `${config.subtitle ? `${config.subtitle} - ` : ''}${title}`;
 
   return `<!doctype html>
@@ -65,7 +81,7 @@ export function htmlDocument(config: Config, body: string): string {
       <meta charset="utf-8">
       <meta name="theme-color" content="#3D9970"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-      <meta name="description" content="${config.description}"  property="og:description">
+      <meta name="description" content="${translation('meta.description')}"  property="og:description">
       <meta name="keywords" content="${config.keywords.join(',')}">
       <meta name="author" content="${config.name}">
       <meta name="copyright" content="Copyright 2014 - ${moment().year()}">
@@ -89,6 +105,9 @@ export function htmlDocument(config: Config, body: string): string {
     </head>
 
     <body>
+      <div class="language-selection">
+        <a data-language="${langSelector.title}" href="${path.join(langSelector.path, (config.path || '').replace(`/${language}`, ''))}" title="${langSelector.title}"></a>
+      </div>
       ${body}
       ${config.scripts ? `<script>${config.scripts}</script>` : ''}
     </body>

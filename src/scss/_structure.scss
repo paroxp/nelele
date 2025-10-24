@@ -6,6 +6,26 @@ body {
   margin: 0 auto;
   max-width: 48rem;
 
+  div.language-selection {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    a {
+      display: inline-block;
+      height: 1.3rem;
+      width: 1.9rem;
+
+      &[data-language=Polski] {
+        background-image: url(/img/translations/pl.svg);
+      }
+
+      &[data-language=English] {
+        background-image: url(/img/translations/en.svg);
+      }
+    }
+  }
+
   > header {
     text-align: center;
 

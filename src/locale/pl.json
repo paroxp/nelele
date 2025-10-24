@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Szalona Artystka",
+    "description": "Ambitna i Kreatywna"
+  },
+  "layout": {
+    "menu": {
+      "about": "O Mnie",
+      "portfolio": "Portfolio"
+    }
+  },
+  "pages": {
+    "404": {
+      "title": "",
+      "content": "Ten zakątek jeszcze nie istnieje... Spróbuj zacząć od",
+      "content_home": "strony głównej"
+    },
+    "about": {
+      "title": {
+        "about": "O mnie",
+        "experience": "Doświadczenie",
+        "skills": "Umiejętności",
+        "software": "Programy",
+        "education": "Wykształcenie"
+      },
+      "content": {
+        "about": [
+          "Jestem absolwentką grafiki komputerowej na Akademii WIT w Warszawie. Szybko przyswajam nowe umiejętności i lubię kreatywnie bawić się treścią. Potrafię bez przeszkód pracować w zespole.",
+          "Moją pasją jest tworzenie grafik zarówno cyfrowych jak i tradycyjnych. Uwielbiam wszelakie fantasy, a wolny czas lubię spędzać na grach komputerowych."
+        ],
+        "experience": [
+          {
+            "title": "Staż jako grafik komputerowy w firmie ANTERIS Irena Kucharska",
+            "bullets": [
+              "Projektowanie wzorów do druku",
+              "Tworzenie ilustracji przeznaczonych do druku",
+              "Obróbka zdjęć i ich przygotowanie do dalszego użytku",
+              "Praca z Midjourney AI, generowanie ilustracji, a następnie obróbka ich w Photoshopie"
+            ]
+          }
+        ],
+        "skills": {
+          "specific": [
+            "Planowanie i zarządzanie projektami",
+            "Projektowanie kreatywne i koncepcyjne",
+            "Tworzenie postaci i scenerii w stylistyce fantasy",
+            "Modelowanie obiektów 3D"
+          ],
+          "soft": [
+            "Błyskawicznie przyswajam nowe umiejętności oraz szybko opanowuję nowe narzędzia i technologie",
+            "Tworzę oryginalne i kreatywne projekty",
+            "Umiejętnie zarządzam swoim czasem",
+            "Potrafię efektywnie współpracować z zespołem, aby wspólnie osiągać wyznaczone cele"
+          ]
+        },
+        "software": {
+          "adobe": "Pakiet Adobe",
+          "threeD": "Programy 3D"
+        },
+        "education": [
+          "Akademia WIT w Warszawie - Grafika/Techniki mulimedialne"
+        ]
+      }
+    }
+  }
+}

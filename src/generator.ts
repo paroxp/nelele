@@ -10,6 +10,7 @@ import { transpileModule, TranspileOptions } from 'typescript';
 import * as tsconfig from '../tsconfig.json';
 
 import { Config, config } from './config';
+import { Language } from './locale';
 import { About } from './pages/about';
 import { NotFound } from './pages/errors';
 import { Home } from './pages/home';
@@ -28,9 +29,10 @@ interface FileWriteable {
 }
 
 interface Page {
-  readonly body: () => ReactElement;
+  readonly body: (props?: any) => ReactElement;
   readonly extension?: string;
   readonly filename?: string;
+  readonly language?: Language;
   readonly name: string;
   readonly path: string;
   readonly scripts?: string;
@@ -38,8 +40,8 @@ interface Page {
   readonly styles?: string;
 }
 
-function compileHTML(page: () => ReactElement, cfg: Config): string {
-  const content = page();
+function compileHTML(page: (props: object) => ReactElement, cfg: Config): string {
+  const content = page({ language: cfg.language });
 
   return html.minify(htmlDocument(cfg, renderToString(content)), {
     collapseWhitespace: true,
@@ -80,11 +82,12 @@ function dist(...parts: readonly string[]): string {
 
 function iterativelyCompileHTML(files: readonly FileWriteable[], page: Page): readonly FileWriteable[] {
   const filename = page.filename || `${page.name}${page.extension || '.html'}`;
-  const { path, scripts } = page;
+  const filepath = path.dirname(`${page.path}.html`);
+  const { scripts } = page;
   const styles = page.styles || 'html{background-color:red}';
-  const content = compileHTML(page.body, { ...config, page: page.name, path, scripts, styles });
+  const content = compileHTML(page.body, { ...config, language: page.language, page: page.name, path: page.path, scripts, styles });
 
-  return [...files, { content, filename }];
+  return [...files, { content, filename: path.join(filepath, filename) }];
 }
 
 async function generator(): Promise<void> {
@@ -114,13 +117,21 @@ async function generator(): Promise<void> {
       path: '/404',
       skipSitemap: true,
       styles: compileSCSS('./scss/error.scss'),
-    },
+    }
   ];
 
   const sitemap = await generateSiteMap(config, pages.filter(page => !page.skipSitemap));
 
   const files: readonly FileWriteable[] = [
-    ...pages.reduce(iterativelyCompileHTML, []),
+    ...[
+      ...pages.reduce((all: Page[], page: Page) => {
+        return [
+          ...all,
+          { ...page, language: 'en' as Language },
+          { ...page, language: 'pl' as Language, path: path.join('/pl', page.path) },
+        ];
+      }, []),
+    ].reduce(iterativelyCompileHTML, []),
     { content: sitemap, filename: 'sitemap.xml' },
   ];
   console.info(`${files.length} files to write.`, '\n');
@@ -137,6 +148,7 @@ async function generator(): Promise<void> {
     { destination: dist('img', 'background', 'placeholder.svg'), source: path.join(__dirname, 'img', 'background', 'placeholder.svg') },
 
     ...discoverFilesToCopy('./img/favicon/'),
+    ...discoverFilesToCopy('./img/translations/'),
   ];
 
   console.info('\n', `${copyList.length} files to copy.`, '\n');

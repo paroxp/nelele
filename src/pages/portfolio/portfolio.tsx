@@ -1,16 +1,19 @@
 import React, { ReactElement } from 'react';
 
 import { Footer, Header } from '../layout';
+import { Language, translator } from '../../locale';
 
-export function Portfolio(): ReactElement {
+export function Portfolio({ language }: { language: Language}): ReactElement {
+  const translation = translator(language);
+
   return <>
-    <Header page="portfolio" />
+    <Header page="portfolio" language={language} />
 
     <main id="portfolio">
       <section>
         <h2>Ja tu <small>dalej</small> kreuję!</h2>
       </section>
     </main>
-    <Footer />
+    <Footer language={language} />
   </>;
 }

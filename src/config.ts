@@ -1,6 +1,9 @@
+import { Language } from './locale';
+
 export type Config = {
   readonly description: string;
   readonly keywords: readonly string[];
+  readonly language?: Language;
   readonly name: string;
   readonly page?: string;
   readonly path?: string;
@@ -16,6 +19,7 @@ export const config: Config = {
   keywords: [
     'concept', 'art', 'photoshop', 'illustrator', 'blender', 'krita', 'gimp', 'product', 'design', 'ui', 'ux', 'user', 'interface', 'experience', 'games', 'manga', '3d', 'max', 'traditional', 'digital', 'portfolio', 'indesign',
   ],
+  language: 'en',
   name: 'Barbara Prochownik',
   styles: '',
   title: 'Mad Artist',

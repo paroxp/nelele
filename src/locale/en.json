@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Mad Artist",
+    "description": "Ambitious and Creative"
+  },
+  "layout": {
+    "menu": {
+      "about": "About Me",
+      "portfolio": "Portfolio"
+    }
+  },
+  "pages": {
+    "404": {
+      "title": "",
+      "content": "This corner does not exist yet... Try going back to the",
+      "content_home": "home page"
+    },
+    "about": {
+      "title": {
+        "about": "About Me",
+        "experience": "Experience",
+        "skills": "Skills",
+        "software": "Software",
+        "education": "Education"
+      },
+      "content": {
+        "about": [
+          "I have graduated Graphics Design at WIT Academy in Warsaw. I quickly adapt to the new skills and love being creatively playful with content. I am a team player.",
+          "Creating both digital and traditional arts is my passion. I love fantasy and I spend my spare time playing video games."
+        ],
+        "experience": [
+          {
+            "title": "Graphics Designer Internship with ANTERIS Irena Kucharska",
+            "bullets": [
+              "Designing print templates",
+              "Crafting print illustrations",
+              "Treatment and preparation of photographs for further use",
+              "Working with Midjourney AI, generating illustrations and finishing them off with Adobe Photoshop"
+            ]
+          }
+        ],
+        "skills": {
+          "specific": [
+            "Planning and Managing projects",
+            "Creative and Conceptual design",
+            "Fantasy themet Character and Scene design",
+            "3D modelling"
+          ],
+          "soft": [
+            "Quickly adopting new skills, tools and technologies",
+            "Developing original and creative projects",
+            "Profficient with Time Management",
+            "Effectively collaborating with the team, driving and achieving shared goals"
+          ]
+        },
+        "software": {
+          "adobe": "Adobe Suite",
+          "threeD": "3D Software"
+        },
+        "education": [
+          "WIT Academy in Warsaw - Graphics Design/Multimedia"
+        ]
+      }
+    }
+  }
+}
