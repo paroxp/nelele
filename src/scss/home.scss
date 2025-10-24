@@ -27,15 +27,21 @@ body > main#home {
   text-align: center;
 
   @include methods.min(map.get(variables.$width, 'tablet')) {
+    left: 0;
     margin-top: -150px;
-    padding-right: 12rem;
     position: absolute;
+    right: 0;
     top: 50%;
+  }
+
+  @include methods.min(map.get(variables.$width, 'desktop')) {
+    padding-right: 12rem;
     text-align: right;
   }
 
   figure {
     background-color: variables.$backlight;
+    border-radius: 0.5rem;
     display: inline-block;
     margin-top: 3rem;
     padding: 1rem 0;
@@ -98,6 +104,9 @@ body > main#home {
 
     @include methods.min(map.get(variables.$width, 'tablet')) {
       margin-top: 5rem;
+    }
+
+    @include methods.min(map.get(variables.$width, 'desktop')) {
       padding-right: 2rem;
       text-align: right;
     }
