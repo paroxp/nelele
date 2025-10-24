@@ -1,4 +1,4 @@
-import { copyFileSync, readdirSync, readFileSync, writeFileSync } from 'fs';
+import * as fs from 'fs';
 import path from 'path';
 
 import html from 'html-minifier';
@@ -58,18 +58,24 @@ function compileSCSS(filename: string): string {
 }
 
 function compileTypeScript(filename: string): string {
-  const source = readFileSync(path.join(__dirname, filename), 'utf8');
+  const source = fs.readFileSync(path.join(__dirname, filename), 'utf8');
 
   return transpileModule(source, tsconfig as unknown as TranspileOptions).outputText;
 }
 
-function discoverFilesToCopy(filepath: string): readonly FileCopyable[] {
-  return readdirSync(path.join(__dirname, filepath)).map((filename: string) =>
-    ({ destination: dist(filename), source: path.join(__dirname, filepath, filename) }));
+function discoverFilesToCopy(filepath: string, distPath?: string): readonly FileCopyable[] {
+  return fs.readdirSync(path.join(__dirname, filepath)).map((filename: string) =>
+    ({ destination: dist(filepath, filename), source: path.join(__dirname, filepath, filename) }));
 }
 
 function dist(...parts: readonly string[]): string {
-  return path.join(__dirname, '..', 'dist', ...parts);
+  const filepath = path.join(__dirname, '..', 'dist', ...parts);
+  const dirpath = path.dirname(filepath);
+  if (!fs.existsSync(dirpath)) {
+    fs.mkdirSync(dirpath, { recursive: true });
+  }
+
+  return filepath;
 }
 
 function iterativelyCompileHTML(files: readonly FileWriteable[], page: Page): readonly FileWriteable[] {
@@ -120,15 +126,15 @@ async function generator(): Promise<void> {
   console.info(`${files.length} files to write.`, '\n');
 
   files.map(file => {
-    writeFileSync(dist(file.filename), file.content);
+    fs.writeFileSync(dist(file.filename), file.content);
     console.info(`'${file.filename}' file generated.`);
   });
 
   const copyList = [
     { destination: dist('robots.txt'), source: path.join(__dirname, 'static', 'robots.txt') },
-    { destination: dist('bg-landing.svg'), source: path.join(__dirname, 'img', 'background', 'landing.svg') },
-    { destination: dist('bg-page.svg'), source: path.join(__dirname, 'img', 'background', 'page.svg') },
-    { destination: dist('bg-placeholder.svg'), source: path.join(__dirname, 'img', 'background', 'placeholder.svg') },
+    { destination: dist('img', 'background', 'landing.svg'), source: path.join(__dirname, 'img', 'background', 'landing.svg') },
+    { destination: dist('img', 'background', 'page.svg'), source: path.join(__dirname, 'img', 'background', 'page.svg') },
+    { destination: dist('img', 'background', 'placeholder.svg'), source: path.join(__dirname, 'img', 'background', 'placeholder.svg') },
 
     ...discoverFilesToCopy('./img/favicon/'),
   ];
@@ -136,7 +142,7 @@ async function generator(): Promise<void> {
   console.info('\n', `${copyList.length} files to copy.`, '\n');
 
   copyList.map(file => {
-    copyFileSync(file.source, file.destination);
+    fs.copyFileSync(file.source, file.destination);
     console.info(`'${file.source}' file copied.`);
   });
 }
