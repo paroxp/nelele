@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { Footer, Header } from '../layout';
-import { Language, translator } from '../../locale';
+import { Language, localeLink, translator } from '../../locale';
 
 import { categories } from './categories';
 
@@ -24,19 +24,19 @@ export function Portfolio({ language }: { language: Language }): ReactElement {
       <section>
         <h2>{translation('pages.portfolio.title.digital')}</h2>
 
-        <Category url="/showroom/concept" img="/img/portfolio/concept/envio1.jpg">
+        <Category url={localeLink(language, '/showroom/concept')} img="/img/portfolio/concept/envio1.jpg">
           {translation('pages.portfolio.category.concept.title')}
         </Category>
 
-        <Category url="/showroom/illustration" img="/img/portfolio/illustration/frog.jpg">
+        <Category url={localeLink(language, '/showroom/illustration')} img="/img/portfolio/illustration/frog.jpg">
           {translation('pages.portfolio.category.illustration.title')}
         </Category>
 
-        <Category url="/showroom/vector" img="/img/portfolio/vector/corgito-mockup.jpg">
+        <Category url={localeLink(language, '/showroom/vector')} img="/img/portfolio/vector/corgito-mockup.jpg">
           {translation('pages.portfolio.category.vector.title')}
         </Category>
 
-        <Category url="/showroom/design" img="/img/portfolio/design/rp.png">
+        <Category url={localeLink(language, '/showroom/design')} img="/img/portfolio/design/rp.png">
           {translation('pages.portfolio.category.design.title')}
         </Category>
       </section>
@@ -44,12 +44,12 @@ export function Portfolio({ language }: { language: Language }): ReactElement {
       <section>
         <h2>{translation('pages.portfolio.title.traditional')}</h2>
 
-        <Category url="/showroom/painting" img="/img/portfolio/painting/sunset.jpg">
+        <Category url={localeLink(language, '/showroom/painting')} img="/img/portfolio/painting/sunset.jpg">
           {translation('pages.portfolio.category.painting.title')}
         </Category>
 
         {/*
-        <Category url="/showroom/drawing" img="">
+        <Category url={localeLink(language, '/showroom/drawing')} img="">
           {translation('pages.portfolio.category.drawing.title')}
         </Category>
         */}
