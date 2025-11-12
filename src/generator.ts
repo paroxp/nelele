@@ -15,7 +15,7 @@ import { About } from './pages/about';
 import { NotFound } from './pages/errors';
 import { Home } from './pages/home';
 import { htmlDocument } from './pages/layout';
-import { Portfolio } from './pages/portfolio';
+import { Portfolio, PortfolioCategory } from './pages/portfolio';
 import { generateSiteMap } from './pages/sitemap';
 
 interface FileCopyable {
@@ -41,7 +41,7 @@ interface Page {
 }
 
 function compileHTML(page: (props: object) => ReactElement, cfg: Config): string {
-  const content = page({ language: cfg.language });
+  const content = page({ language: cfg.language, page: cfg.page });
 
   return html.minify(htmlDocument(cfg, renderToString(content)), {
     collapseWhitespace: true,
@@ -112,6 +112,42 @@ async function generator(): Promise<void> {
       styles: compileSCSS('./scss/portfolio.scss'),
     },
     {
+      body: PortfolioCategory,
+      name: 'concept',
+      path: '/showroom/concept',
+      styles: compileSCSS('./scss/showroom.scss'),
+    },
+    {
+      body: PortfolioCategory,
+      name: 'illustration',
+      path: '/showroom/illustration',
+      styles: compileSCSS('./scss/showroom.scss'),
+    },
+    {
+      body: PortfolioCategory,
+      name: 'vector',
+      path: '/showroom/vector',
+      styles: compileSCSS('./scss/showroom.scss'),
+    },
+    {
+      body: PortfolioCategory,
+      name: 'design',
+      path: '/showroom/design',
+      styles: compileSCSS('./scss/showroom.scss'),
+    },
+    {
+      body: PortfolioCategory,
+      name: 'painting',
+      path: '/showroom/painting',
+      styles: compileSCSS('./scss/showroom.scss'),
+    },
+    {
+      body: PortfolioCategory,
+      name: 'drawing',
+      path: '/showroom/drawing',
+      styles: compileSCSS('./scss/showroom.scss'),
+    },
+    {
       body: NotFound,
       name: '404',
       path: '/404',
@@ -149,6 +185,12 @@ async function generator(): Promise<void> {
 
     ...discoverFilesToCopy('./img/favicon/'),
     ...discoverFilesToCopy('./img/translations/'),
+
+    ...discoverFilesToCopy('./img/portfolio/concept'),
+    ...discoverFilesToCopy('./img/portfolio/design'),
+    ...discoverFilesToCopy('./img/portfolio/illustration'),
+    ...discoverFilesToCopy('./img/portfolio/painting'),
+    ...discoverFilesToCopy('./img/portfolio/vector'),
   ];
 
   console.info('\n', `${copyList.length} files to copy.`, '\n');

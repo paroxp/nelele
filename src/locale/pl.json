@@ -61,6 +61,100 @@
           "Akademia WIT w Warszawie - Grafika/Techniki mulimedialne"
         ]
       }
+    },
+    "portfolio": {
+      "title": {
+        "digital": "Prace Cyfrowe",
+        "traditional": "Rysunek Tradycyjny"
+      },
+      "category": {
+        "concept": {
+          "title": "Koncepty",
+          "temple": {
+            "title": "Świątynia",
+            "description": "Koncept enviroment"
+          },
+          "night": {
+            "title": "Poprzez noc",
+            "description": "Koncept enviroment"
+          },
+          "blossom": {
+            "title": "Późny zakwit",
+            "description": "Koncept enviroment"
+          },
+          "mage": {
+            "title": "Mag alchemik",
+            "description": "Koncept postaci"
+          }
+        },
+        "design": {
+          "title": "Projektowanie",
+          "rpWebsite": {
+            "title": "Strona internetowa",
+            "description": "Projekt strony internetowej, wizytówki i logo"
+          },
+          "tshirt": {
+            "title": "Koszulka",
+            "description": "Projekt koszulki o temacie \"Czy te oczy moga kłamać?\""
+          }
+        },
+        "drawing": {
+          "title": "Rysunki"
+        },
+        "illustration": {
+          "title": "Ilustracja",
+          "peace": {
+            "title": "Spokój",
+            "description": "Ilustracja inspirowana zdjęciem"
+          },
+          "mothersLove": {
+            "title": "Matczyna miłość",
+            "description": "Ilustracja inspirowana zdjęciem"
+          },
+          "shepherd": {
+            "title": "Owczarek",
+            "description": "Ilustracja inspirowana zdjęciem"
+          },
+          "kirin": {
+            "title": "Kirin",
+            "description": "Ilustracja inspirowana mitologią chińską"
+          },
+          "luminousCat": {
+            "title": "Świecący kot",
+            "description": "Ilustracja fantasy"
+          }
+        },
+        "painting": {
+          "title": "Obrazy",
+          "sunset": {
+            "title": "Zachód",
+            "description": "Obraz olejny na płótnie"
+          },
+          "forest": {
+            "title": "Czarny las",
+            "description": "Obraz olejny na kartonie"
+          }
+        },
+        "vector": {
+          "title": "Wektory",
+          "polanski": {
+            "title": "Plakaty",
+            "description": "Projekt plakatów do filmów reżysera Romana Polańskiego"
+          },
+          "masks": {
+            "title": "Plakaty",
+            "description": "Projekt plakatów trzech masaek"
+          },
+          "corgito": {
+            "title": "Plakat",
+            "description": "Projekt plakatu nawiązującego do zdania \"Myślę, więc jestem\""
+          },
+          "ror": {
+            "title": "Plakat",
+            "description": "Projekt plakatu do gry Risk of Rain"
+          }
+        }
+      }
     }
   }
 }

@@ -6,33 +6,79 @@
 
 html[data-page=portfolio] {
   background-attachment: fixed;
-  background-image: url(/img/background/placeholder.svg);
-  background-position: right bottom;
+  background-image: url(/img/background/page.svg);
+  background-position: left bottom;
   background-repeat: no-repeat;
 
+  @include methods.min(map.get(variables.$width, 'tablet')) {
+    background-position: inherit;
+  }
+
   body > footer {
-    bottom: 1rem;
-    left: 1rem;
+    margin-bottom: 1rem;
     margin-top: 3rem;
-    position: absolute;
-    right: 1rem;
-    text-align: left;
+    text-align: right;
   }
 }
 
 body > main#portfolio {
+  section {
+    &:not(:last-of-type) {
+      margin-bottom: 3rem;
+    }
+  }
+
   h2 {
     font-family: "Amatic SC", sans-serif;
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: 600;
     padding: 1rem;
 
-    small {
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      text-align: left;
+    }
+  }
+
+  a {
+    display: block;
+
+    @include methods.min(map.get(variables.$width, 'tablet')) {
       display: inline-block;
-      margin-left: -2rem;
-      margin-top: 6rem;
-      position: absolute;
-      rotate: 50deg;
+      width: 50%;
+    }
+
+    figure {
+      height: 20rem;
+      text-align: center;
+
+      div {
+        background-color: map.get(variables.$light-mode, 'foreground');
+        background-position: center;
+        background-size: cover;
+        border-radius: 10rem;
+        display: block;
+        height: 15rem;
+        margin: 1rem auto;
+        width: 15rem;
+        transition: box-shadow .3s, height .3s, margin .3s, width .3s;
+      }
+
+      figcaption {
+        font-family: "Amatic SC", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+    }
+
+    &:hover, &:active {
+      figure {
+        div {
+          box-shadow: 0 0 1rem map.get(variables.$light-mode, 'secondary');
+          height: 16rem;
+          margin: 0 auto;
+          width: 16rem;
+        }
+      }
     }
   }
 }

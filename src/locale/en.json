@@ -61,6 +61,100 @@
           "WIT Academy, Warsaw - Graphic Design / Multimedia"
         ]
       }
+    },
+    "portfolio": {
+      "title": {
+        "digital": "Digital Art",
+        "traditional": "Traditional Art"
+      },
+      "category": {
+        "concept": {
+          "title": "Concept",
+          "temple": {
+            "title": "Temple",
+            "description": "Enviroment"
+          },
+          "night": {
+            "title": "Through the night",
+            "description": "Enviroment"
+          },
+          "blossom": {
+            "title": "Late blossom",
+            "description": "Enviroment"
+          },
+          "mage": {
+            "title": "Mage-Alchemist",
+            "description": "Character"
+          }
+        },
+        "design": {
+          "title": "Design",
+          "rpWebsite": {
+            "title": "Web design",
+            "description": "Web page, business card and a logo design"
+          },
+          "tshirt": {
+            "title": "T-Shirt",
+            "description": "T-Shirt project featuring theme \"Could these eyes tell a lie?\""
+          }
+        },
+        "drawing": {
+          "title": "Drawings"
+        },
+        "illustration": {
+          "title": "Illustration",
+          "peace": {
+            "title": "Peace",
+            "description": "Inspired by a photograph"
+          },
+          "mothersLove": {
+            "title": "Mother's love",
+            "description": "Inspired by a photograph"
+          },
+          "shepherd": {
+            "title": "Shepherd",
+            "description": "Inspired by a photograph"
+          },
+          "kirin": {
+            "title": "Kirin",
+            "description": "Inspired by chinese mythology"
+          },
+          "luminousCat": {
+            "title": "Luminous cat",
+            "description": "Fantasy"
+          }
+        },
+        "painting": {
+          "title": "Paintings",
+          "sunset": {
+            "title": "Sunset",
+            "description": "Oil painting on canvas"
+          },
+          "forest": {
+            "title": "Black forest",
+            "description": "Oil painting on cardboard"
+          }
+        },
+        "vector": {
+          "title": "Vector",
+          "polanski": {
+            "title": "Posters",
+            "description": "Project featuring Roman Polański directed movies"
+          },
+          "masks": {
+            "title": "Posters",
+            "description": "Project featuring three masks"
+          },
+          "corgito": {
+            "title": "Poster",
+            "description": "Project themed \"I think, therefore I am\""
+          },
+          "ror": {
+            "title": "Poster",
+            "description": "Project featuring the Risk of Rain game"
+          }
+        }
+      }
     }
   }
 }
