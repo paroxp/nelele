@@ -6,3 +6,4 @@ export const social: { readonly [icon: string]: string } = {
 };
 
 export const logo = fs.readFileSync(path.join(__dirname, 'logo.svg'), 'utf8');
+export const back = fs.readFileSync(path.join(__dirname, 'back.svg'), 'utf8');

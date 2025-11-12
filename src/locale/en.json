@@ -67,6 +67,9 @@
         "digital": "Digital Art",
         "traditional": "Traditional Art"
       },
+      "navigation": {
+        "back": "Back to Portfolio"
+      },
       "category": {
         "concept": {
           "title": "Concept",

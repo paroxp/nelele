@@ -67,6 +67,9 @@
         "digital": "Prace Cyfrowe",
         "traditional": "Rysunek Tradycyjny"
       },
+      "navigation": {
+        "back": "Powrót do Portfolio"
+      },
       "category": {
         "concept": {
           "title": "Koncepty",

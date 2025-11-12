@@ -4,6 +4,7 @@ import { Footer, Header } from '../layout';
 import { Language, localeLink, translator } from '../../locale';
 
 import { categories } from './categories';
+import { back } from '../../img';
 
 function Category({ children, url, img }: { children: string, url: string, img: string }): ReactElement {
   return <a href={url}>
@@ -77,6 +78,11 @@ export function PortfolioCategory({ language, page }: { language: Language, page
           </figure>)}
         </div>
       </section>)}
+
+      <a href={localeLink(language, '/portfolio')} id="back">
+        <div dangerouslySetInnerHTML={{ __html: back }}></div>
+        {translation('pages.portfolio.navigation.back')}
+      </a>
     </main>
     <Footer language={language} />
   </>;
