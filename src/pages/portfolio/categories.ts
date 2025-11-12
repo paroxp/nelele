@@ -109,7 +109,7 @@ export const categories = [
       },
       {
         title: 'pages.portfolio.category.design.tshirt.title', description: 'pages.portfolio.category.design.tshirt.description', grid: { height: 2, width: 2 }, images: [
-          { path: '/img/portfolio/design/dog.png', size: { height: 1, width: 1 } },
+          { path: '/img/portfolio/design/dog.jpg', size: { height: 1, width: 1 } },
           { path: '/img/portfolio/design/eyes.jpg', size: { height: 1, width: 1 } },
           { path: '/img/portfolio/design/dog-mockup.jpg', size: { height: 1, width: 1 } },
           { path: '/img/portfolio/design/eyes-mockup.jpg', size: { height: 1, width: 1 } },
