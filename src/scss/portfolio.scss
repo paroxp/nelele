@@ -69,6 +69,18 @@ body > main#portfolio {
         font-family: "Amatic SC", sans-serif;
         font-size: 2.5rem;
         font-weight: 600;
+
+        span {
+          backdrop-filter: blur(1rem);
+          background-color: variables.$backlight;
+          border-radius: .5rem;
+          padding: .5rem;
+
+          @include methods.min(map.get(variables.$width, 'tablet')) {
+            background-color: unset;
+            backdrop-filter: unset;
+          }
+        }
       }
     }
 

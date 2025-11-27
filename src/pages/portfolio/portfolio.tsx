@@ -10,7 +10,9 @@ function Category({ children, url, img }: { children: string, url: string, img: 
   return <a href={url}>
       <figure>
         <div style={{ backgroundImage: `url(${img})` }}></div>
-        <figcaption>{children}</figcaption>
+        <figcaption>
+          <span>{children}</span>
+        </figcaption>
       </figure>
     </a>;
 }
