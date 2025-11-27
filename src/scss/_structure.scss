@@ -94,5 +94,31 @@ body {
       bottom: 1rem;
       text-align: right;
     }
+
+    ul {
+      cursor: default;
+      list-style: none;
+      margin: 0 1rem;
+      padding: 0;
+      user-select: none;
+      vertical-align: top;
+
+      @include methods.min(map.get(variables.$width, 'tablet')) {
+        display: inline-block;
+      }
+
+      li {
+        display: inline-block;
+        margin: .075rem;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }

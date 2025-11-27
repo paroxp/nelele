@@ -7,6 +7,11 @@
     "menu": {
       "about": "About",
       "portfolio": "Portfolio"
+    },
+    "footer": {
+      "social": {
+        "instagram": "Follow me on Instagram"
+      }
     }
   },
   "pages": {

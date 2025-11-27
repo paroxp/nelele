@@ -15,11 +15,13 @@ html[data-page=home] {
   }
 
   body > footer {
-    bottom: 1rem;
-    left: 1rem;
-    margin-top: 3rem;
-    position: absolute;
-    right: 1rem;
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      bottom: 1rem;
+      left: 1rem;
+      margin-top: 3rem;
+      position: absolute;
+      right: 1rem;
+    }
   }
 }
 

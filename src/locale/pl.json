@@ -7,6 +7,11 @@
     "menu": {
       "about": "O Mnie",
       "portfolio": "Portfolio"
+    },
+    "footer": {
+      "social": {
+        "instagram": "Znajdź mnie na Instagram'ie"
+      }
     }
   },
   "pages": {

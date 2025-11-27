@@ -15,7 +15,9 @@ html[data-page=about] {
   }
 
   body > footer {
-    margin-bottom: 1rem;
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      margin-bottom: 1rem;
+    }
   }
 }
 

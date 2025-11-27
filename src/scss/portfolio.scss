@@ -15,9 +15,11 @@ html[data-page=portfolio] {
   }
 
   body > footer {
-    margin-bottom: 1rem;
-    margin-top: 3rem;
-    text-align: right;
+    @include methods.min(map.get(variables.$width, 'tablet')) {
+      margin-bottom: 1rem;
+      margin-top: 3rem;
+      text-align: right;
+    }
   }
 }
 

@@ -55,9 +55,13 @@ export function Header(props: HeaderProperties): ReactElement {
 }
 
 export function Footer({ language }: { language: Language}): ReactElement {
+  const translation = translator(language);
   const currentYear = moment().year();
 
   return <footer className='no-print'>
+    <ul className="icons">
+      <SocialLink icon="instagram" url="https://www.instagram.com/nevandela" title={translation('layout.footer.social.instagram')} />
+    </ul>
     &copy; 2014 - {currentYear}
   </footer>;
 }
