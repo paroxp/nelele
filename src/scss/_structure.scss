@@ -10,22 +10,6 @@ body {
     max-width: unset;
   }
 
-  div.page.background {
-    background-attachment: fixed;
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: -1;
-
-    @include methods.min(map.get(variables.$width, 'tablet')) {
-      background-position: inherit;
-    }
-  }
-
   div.language-selection {
     position: absolute;
     right: 0;
