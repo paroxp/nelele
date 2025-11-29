@@ -5,13 +5,8 @@
 @use "variables";
 
 html {
-  background-attachment: fixed;
-  background-image: url(/img/background/page.svg);
-  background-position: left bottom;
-  background-repeat: no-repeat;
-
-  @include methods.min(map.get(variables.$width, 'tablet')) {
-    background-position: inherit;
+  div.page.background {
+    background-image: url(/img/background/page.svg);
   }
 
   body > footer {

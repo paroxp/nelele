@@ -114,6 +114,7 @@ export function htmlDocument(config: Config, body: string): string {
     </head>
 
     <body>
+      <div class="page background"></div>
       <div class="language-selection">
         <a data-language="${langSelector.title}" href="${path.join(langSelector.path, (config.path || '').replace(`/${language}`, ''))}" title="${langSelector.title}"></a>
       </div>
