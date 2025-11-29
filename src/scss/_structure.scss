@@ -6,6 +6,10 @@ body {
   margin: 0 auto;
   max-width: 48rem;
 
+  @media print {
+    max-width: unset;
+  }
+
   div.language-selection {
     position: absolute;
     right: 0;
@@ -23,6 +27,13 @@ body {
       &[data-language=English] {
         background-image: url(/img/translations/en.svg);
       }
+    }
+  }
+
+  > main {
+    @media print {
+      margin: 0 auto;
+      max-width: 95%;
     }
   }
 
@@ -46,6 +57,7 @@ body {
 
       @media print {
         display: block;
+        font-size: 5rem;
       }
 
       small {

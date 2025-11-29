@@ -41,6 +41,10 @@ body > main#showroom {
     position: fixed;
     transition: color .3s;
 
+    @media print {
+      display: none;
+    }
+
     div {
       display: inline-block;
       position: absolute;
@@ -63,12 +67,91 @@ body > main#showroom {
 
   section {
     padding: 0 1rem;
+
     &:not(:first-of-type) {
       margin-top: 3rem;
     }
+
+    @media print {
+      padding: 0;
+      page-break-inside: avoid;
+    }
   }
 
-  h2 {
+  section.index {
+    display: none;
+
+    @media print {
+      display: block;
+    }
+
+    h2 {
+      font-family: "Amatic SC", sans-serif;
+      font-size: 4.5rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    figure {
+      display: inline-block;
+      height: 20rem;
+      margin: revert;
+      text-align: center;
+
+      @media print {
+        page-break-inside: avoid;
+      }
+
+      div {
+        background-color: map.get(variables.$light-mode, 'foreground');
+        background-position: center;
+        background-size: cover;
+        border-radius: 10rem;
+        display: flex;
+        height: 15rem;
+        margin: 1rem auto;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        transition: box-shadow .3s, height .3s, margin .3s, width .3s;
+
+        img {
+          display: inline-block;
+
+          &.portrait {
+            max-height: unset;
+            max-width: 100%;
+          }
+
+          &.landscape {
+            max-height: 100%;
+            max-width: unset;
+          }
+        }
+      }
+
+      figcaption {
+        font-family: "Amatic SC", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+
+        span {
+          backdrop-filter: blur(1rem);
+          background-color: variables.$backlight;
+          border-radius: .5rem;
+          padding: .5rem;
+
+          @include methods.min(map.get(variables.$width, 'tablet')) {
+            background-color: unset;
+            backdrop-filter: unset;
+          }
+        }
+      }
+    }
+  }
+
+  h3 {
     font-family: "Amatic SC", sans-serif;
     font-size: 4rem;
     font-weight: 600;
@@ -76,15 +159,25 @@ body > main#showroom {
     margin-bottom: 0;
     padding: 1rem;
     padding-bottom: 0;
+
+    @media print {
+      padding: 1rem 0;
+      padding-bottom: 0;
+    }
   }
 
-  h3 {
+  h4 {
     font-size: 1.75rem;
     font-style: italic;
     font-weight: 300;
     margin-top: 0;
     padding: 1rem;
     padding-top: 0;
+
+    @media print {
+      padding: 1rem 0;
+      padding-bottom: 0;
+    }
   }
 
   figure {

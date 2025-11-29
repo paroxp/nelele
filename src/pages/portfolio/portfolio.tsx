@@ -6,10 +6,12 @@ import { Language, localeLink, translator } from '../../locale';
 import { categories } from './categories';
 import { back } from '../../img';
 
-function Category({ children, url, img }: { children: string, url: string, img: string }): ReactElement {
+function Category({ children, url, img, portrait }: { children: string, url: string, img: string, portrait?: boolean }): ReactElement {
   return <a href={url}>
       <figure>
-        <div style={{ backgroundImage: `url(${img})` }}></div>
+        <div>
+          <img src={img} alt={children} className={portrait ? 'portrait' : 'landscape'} />
+        </div>
         <figcaption>
           <span>{children}</span>
         </figcaption>
@@ -27,15 +29,15 @@ export function Portfolio({ language }: { language: Language }): ReactElement {
       <section>
         <h2>{translation('pages.portfolio.title.digital')}</h2>
 
-        <Category url={localeLink(language, '/showroom/concept')} img="/img/portfolio/concept/envio1.jpg">
+        <Category url={localeLink(language, '/showroom/concept')} img="/img/portfolio/concept/envio1.jpg" >
           {translation('pages.portfolio.category.concept.title')}
         </Category>
 
-        <Category url={localeLink(language, '/showroom/illustration')} img="/img/portfolio/illustration/frog.jpg">
+        <Category url={localeLink(language, '/showroom/illustration')} img="/img/portfolio/illustration/frog.jpg" portrait={true}>
           {translation('pages.portfolio.category.illustration.title')}
         </Category>
 
-        <Category url={localeLink(language, '/showroom/vector')} img="/img/portfolio/vector/corgito-mockup.jpg">
+        <Category url={localeLink(language, '/showroom/vector')} img="/img/portfolio/vector/corgito-mockup.jpg" portrait={true}>
           {translation('pages.portfolio.category.vector.title')}
         </Category>
 
@@ -70,9 +72,20 @@ export function PortfolioCategory({ language, page }: { language: Language, page
     <Header page="portfolio" language={language} />
 
     <main id="showroom">
+      <section className="index">
+        <h2>{translation('layout.menu.portfolio')} - {translation(`pages.portfolio.category.${category?.title}.title`)}</h2>
+
+        {category?.entries.map((sec, index) => <figure key={index}>
+          <div>
+            <img src={sec.images[0].path} alt={translation(sec.title)} className={sec.images[0].size.portrait ? 'portrait' : 'landscape'} />
+          </div>
+          <figcaption>{translation(sec.title)}</figcaption>
+        </figure>)}
+      </section>
+
       {category?.entries.map((sec, index) => <section key={index}>
-        <h2>{translation(sec.title)}</h2>
-        <h3>{translation(sec.description)}</h3>
+        <h3>{translation(sec.title)}</h3>
+        <h4>{translation(sec.description)}</h4>
 
         <div className="container" style={{ gridTemplateColumns: `repeat(${sec.grid.width}, 1fr)`, gridTemplateRows: `repeat(${sec.grid.height}, 1fr)` }}>
           {sec.images.map((image, index) => <figure key={index} style={{ gridColumn: `span ${image.size.width} / span ${image.size.width}`, gridRow: `span ${image.size.height} / span ${image.size.height}`, }}>
