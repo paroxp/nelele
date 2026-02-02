@@ -145,6 +145,10 @@
         },
         "vector": {
           "title": "Vector",
+          "beopen": {
+            "title": "GNU/Linux - Be Open",
+            "description": "Open up your Windows, to see the beautiful world the way it should be!"
+          },
           "polanski": {
             "title": "Posters",
             "description": "Project featuring Roman Polański directed movies"

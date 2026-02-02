@@ -69,6 +69,13 @@ export const categories = [
     title: 'vector',
     entries: [
       {
+        title: 'pages.portfolio.category.vector.beopen.title', description: 'pages.portfolio.category.vector.beopen.description', grid: { height: 2, width: 3 }, images: [
+          { path: '/img/portfolio/vector/linux-be-open.jpg', size: { height: 2, width: 2, portrait: true } },
+          { path: '/img/portfolio/vector/linux-be-open-poster.jpg', size: { height: 1, width: 1 } },
+          { path: '/img/portfolio/vector/linux-be-open-tshirt.jpg', size: { height: 1, width: 1 } },
+        ],
+      },
+      {
         title: 'pages.portfolio.category.vector.polanski.title', description: 'pages.portfolio.category.vector.polanski.description', grid: { height: 8, width: 3 }, images: [
           { path: '/img/portfolio/vector/polanski1.jpg', size: { height: 3, width: 1, portrait: true } },
           { path: '/img/portfolio/vector/polanski2.jpg', size: { height: 3, width: 1 } },

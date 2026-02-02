@@ -145,6 +145,10 @@
         },
         "vector": {
           "title": "Wektory",
+          "beopen": {
+            "title": "GNU/Linux - Be Open",
+            "description": "Otwórz swoje okna i zobacz ten świat tak pięknyn, jak powinien być!"
+          },
           "polanski": {
             "title": "Plakaty",
             "description": "Projekt plakatów do filmów reżysera Romana Polańskiego"
