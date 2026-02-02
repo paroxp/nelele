@@ -47,23 +47,23 @@
  * GOV.UK Frontend's Visually Hidden mixin, allowing elements to be readable but visually non-existent.
  */
 @mixin govuk-visually-hidden($important: true) {
-  position: absolute if($important, !important, null);
+  position: absolute if(sass($important): !important);
 
-  width: 1px if($important, !important, null);
-  height: 1px if($important, !important, null);
+  width: 1px if(sass($important): !important);
+  height: 1px if(sass($important): !important);
   // If margin is set to a negative value it can cause text to be announced in
   // the wrong order in VoiceOver for OSX
-  margin: 0 if($important, !important, null);
-  padding: 0 if($important, !important, null);
+  margin: 0 if(sass($important): !important);
+  padding: 0 if(sass($important): !important);
 
-  overflow: hidden if($important, !important, null);
-  clip: rect(0 0 0 0) if($important, !important, null);
-  clip-path: inset(50%) if($important, !important, null);
+  overflow: hidden if(sass($important): !important);
+  clip: rect(0 0 0 0) if(sass($important): !important);
+  clip-path: inset(50%) if(sass($important): !important);
 
-  border: 0 if($important, !important, null);
+  border: 0 if(sass($important): !important);
 
   // For long content, line feeds are not interpreted as spaces and small width
   // causes content to wrap 1 word per line:
   // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-  white-space: nowrap if($important, !important, null);
+  white-space: nowrap if(sass($important): !important);
 }
