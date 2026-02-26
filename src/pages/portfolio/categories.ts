@@ -115,6 +115,14 @@ export const categories = [
         ],
       },
       {
+        title: 'pages.portfolio.category.design.zigzag.title', description: 'pages.portfolio.category.design.zigzag.description', grid: { height: 2, width: 2 }, images: [
+          { path: '/img/portfolio/design/zigzag1.jpg', size: { height: 1, width: 1, portrait: true } },
+          { path: '/img/portfolio/design/zigzag2.jpg', size: { height: 1, width: 1 } },
+          { path: '/img/portfolio/design/zigzag3.jpg', size: { height: 1, width: 1 } },
+          { path: '/img/portfolio/design/zigzag4.jpg', size: { height: 1, width: 1 } },
+        ],
+      },
+      {
         title: 'pages.portfolio.category.design.tshirt.title', description: 'pages.portfolio.category.design.tshirt.description', grid: { height: 2, width: 2 }, images: [
           { path: '/img/portfolio/design/dog.jpg', size: { height: 1, width: 1, portrait: true } },
           { path: '/img/portfolio/design/eyes.jpg', size: { height: 1, width: 1 } },
